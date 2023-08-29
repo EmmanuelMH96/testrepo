@@ -1,0 +1,52 @@
+github temporal token (available till 09/27/2023) : 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
+
+Configure username and email
+git config --global user.name "Name Last" 
+git config --global user.  email "email"
+
+GIt Repository: A directory with .git folder, where all the contents are tracked for changes.
+
+Remote: It refers to a server where the project code is present. For example, Github and Gitlab.
+
+Commit: It is similar to version. When you make changes in a file, you need to commit the changes in orfer to save and create its new version, which will create a unigque commit hash (like version number).
+
+Origin. Its a variable where Git stores the URL of your remote repository. For example, origin => www.github.com/username/myrepo
+
+
+GIT BASIC COMMANDS
+
+git intit adds .git folder and initializes the current folder to track its changes.
+git status displays the current state of the staging area and the working directory, that is, which files are added/removed/modified.
+git diff shows the exact changes with line and column number.
+git add adds the changes to the staging area. If you have added a new file, this command starts tracking the file for modifications.
+git commit will save all the changes with a unique hash number in the local repository.
+git push sends the changes to the remote repository (server).
+
+
+git clone: Get the complete project from remote to your local machine.
+git pull origin <branch_name>: Get the new changes from remote branch to local branch.
+git push origin <branch_name>: Send your local branch changes to the remote branch.
+git remote add <name> <url>: Add a new remote repo link to your local repo.
+git remote -v: List all the remote repo URLs linked to your local repo.
+
+STAGES IN GIT
+
+1	Working Area: You can edit files using your favorite editor/Integrated Development Environmet (IDE).
+2	Staging Area: You have made the changes and added the changes to GIt. You can sill make changes here. (From the analogy explained in the next card) It is like taking an item out of the box, where the box is the staging area (git add).
+3	Local repository: You have finalized the changes and commited them with a new hash and proper message. (git commit)
+
+Remote repository: You cann ow push the changes to online platforms like Github or Gitlab from where others can collaborate. (git push)
+
+GIT STAGES: ANALOGY
+
+Git works in the three stages known as The Three Trees: Working Area, Staging Area, and Local Repository, which means Git maintains the three states of a file. To understand this better, let us take an analogy of a box.
+
+Asume you are packing items in the house in different boxes and labeling them to identify it later.
+
+Get a table and keep all items that you want to pack underneath. (git init)
+Now you might select specific kitchen items, dust them, and club similar items (lke spoons) together. (doing changes - Working area)
+Add the items that are ready to the box. (git add - Staged).
+Seal the box and add a label - "Kitchen Items". (git commit - Commited)
+
+After git commit, a unique hash is created and the changes are saved.
+
