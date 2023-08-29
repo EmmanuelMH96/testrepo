@@ -50,3 +50,104 @@ Seal the box and add a label - "Kitchen Items". (git commit - Commited)
 
 After git commit, a unique hash is created and the changes are saved.
 
+HEAD and DOT operators
+
+HEAD is a reference variable that always points to the tip of your current branch, that is, recent commit of your current branch.
+
+HEAD can be used with the following symbols to refer other commits:
+
+- Tilde symbol (~): Used to point to the previous commits from base HEAD
+- Caret sybol (^); Used to point to the immediate parent commit from the current referenced commit.
+
+You can yse both tilde and caret symbols in combination with HEAD to refer specific commit:
+	HEAD means (the reference to ) the recent commit og current branch -> F
+		HEAD^1 means First parent of F -> E
+		HEAD^2 means Second parent of G -> error as there is only one immediate parent commit
+	HEAD~1 means (ther reference to) one commit before HEAD -> E
+		HEAD~1^1 means First parent of E -> C
+		HEAD~1^2 means Second parent of E -> D
+		HEAD~1^3 means Third parent of E -> error
+	HEAD~3 means (the reference to) three commits before HEAD -> B
+
+Double DOT operator
+
+It is the default operator in git diff
+git diff maste..feature or git diff master feature command willl display all the diffferences from G to C (that is, including F and G)
+
+Triple DOt operator
+
+It shows the difference between master and feature branch starting at the last common commit E.
+git diff master...feature command's output would be the difference in feature branch (that is, only A, B, and C).
+
+GIT HISTORY
+
+Whit multiple developers pushing new commits and changes, you might want to view the history of everything that happened with the repository.
+
+Git provides the following commands, which allows you to read and review your repo's history:
+	git log
+	git show
+	git diff
+
+GIT LOG
+
+Git log command shows the list of commits in the current branch. You can use it in the following ways:
+
+	git log -2 displays the history of last two commits
+	git log commit_id shows the history starting from commit_id
+	git log filename displays the list of commits for the file
+
+FLAGS
+
+You can enhance the output of git log command using these optional flags:
+	--oneline: Fits the log output to a single line
+	--decorate: Adds a symbolic pointer to the output
+	--graph: Gives a graphical representation to the log output
+	--grep=<pattern>: Filters the log output and displays the output which matches the specified pattern
+
+For example, git log --oneline
+
+GIT SHOW
+
+git show is a veraatile command which is similar to git log, but with fewer additional features.
+
+You can pass different arguments like:
+	commit_id
+	tree
+
+It shows the author's name, timestamp, commit message, and difference from the previous commit.
+
+For commit range git show --oneline HEAD~2..HEAD , it gets resolved, and each commit is displayed individually.
+
+GIT DIFF
+
+git diff funtion takes two input datasets and outputs the changes between them.
+
+Datasets can be commits, branch, files and more.
+	
+	git diff HEAD~1 HEAD shows the difference between two commits.
+
+Let us take a sample git diff output as follows.
+
+###### example of git diff output######
+diff --git a/sample.txt b/sample.txt
+index 8d3g6cv..f94e50c 574641
+--- a/sample.txt
++++ b/sample.txt
+@@ -1 +1 @@
+-this is a git diff test example
++this is a diff example
+#######################################
+
+The linediff --git a/sample.txt b/sample.txt displays the input file for git diff
+
+--- a/sample.txt +++ b/sample.txt
+
+The changes from a/sample.txt are marked with --- and changes from b/sample.txt are marked with +++ symbol.
+
+git log -p: Prints full details of each commit
+git log --grep-reflog=<pattern>: Shows the list of commits when commit message matches regular expression pattern
+git log --follow ./path/to/filename: Shows the history for the current file
+git show: Outputs content changes of the specified commit
+git diff --color-words: Output has only the color-coded words that have changed
+git diff –staged: Shows the file differences between staging and the last committed version
+git diff .path/to/file: Shows changes in a file compared to the previous commit
